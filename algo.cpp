@@ -11,9 +11,12 @@ int main() {
     freopen("output.txt", "w", stdout);
 #endif
 
-    int i;
-    cin >> i;
-    cout << i;
+    ios::sync_with_stdio(0);
+    cin.tie(0);
+
+    int b = 13;
+    b >>= 1;
+    cout << b;
 
     return 0;
 }
