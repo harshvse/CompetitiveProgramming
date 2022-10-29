@@ -33,4 +33,4 @@
 
 # VSconfig
 /.vscode
-/build
+*/build
