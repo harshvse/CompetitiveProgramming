@@ -1,22 +1,26 @@
-#include <bits/stdc++.h>
+#include <iostream>
 using namespace std;
 
-#define ll long long int
-#define vi vector<int>
-#define vll vector<long long int>
-
 int main() {
+
 #ifndef ONLINE_JUDGE
     freopen("input.txt", "r", stdin);
     freopen("output.txt", "w", stdout);
 #endif
 
-    ios::sync_with_stdio(0);
-    cin.tie(0);
+    int n, moves = 0;
+    cin >> n;
 
-    int b = 13;
-    b >>= 1;
-    cout << b;
+    int array[n];
+    for (int i = 0; i < n; i++) {
+        cin >> array[i];
+    }
 
-    return 0;
+    for (int i = 1; i < n; i++) {
+        if (array[i] < array[i - 1]) {
+            moves += (array[i - 1] - array[i]);
+            array[i] = array[i - 1];
+        }
+    }
+    cout << moves;
 }
