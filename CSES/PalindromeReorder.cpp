@@ -14,8 +14,17 @@ int main() {
     ios::sync_with_stdio(0);
     cin.tie(0);
 
-    int a = INT_MAX;
-    cout << a;
+    string input;
+    getline(cin, input);
+
+    multiset<char> inputSet;
+
+    for (int i = 0; i < input.size(); i++) {
+        inputSet.insert(input.at(i));
+    }
+    for (auto x : inputSet) {
+        cout << x;
+    }
 
     return 0;
 }
