@@ -16,26 +16,43 @@ int main() {
 
     int t;
     cin >> t;
-    for (int i = 0; i < t; i++) {
-        ll size;
+    for (int j = 0; j < t; j++) {
+        int size;
         cin >> size;
         string s;
         cin >> s;
-
-        for (ll j = 0; j < s.size(); j++) {
-            for (ll k = 0; k < s.size() - 1; k++) {
-                if (s[k] == s[k + 1]) {
-                    s[k] = '0';
-                    s.erase(k + 1, 1);
+        bool flag = false;
+        vi blocks;
+        if (size == 1) {
+            cout << "YES" << endl;
+            continue;
+        }
+        int blockCount = 0;
+        for (int i = 0; i < s.size(); i++) {
+            if (s[i] == '1') {
+                blockCount++;
+            } else {
+                if (blockCount % 2 != 0) {
+                    break;
+                    flag = true;
                 }
+                blocks.push_back(blockCount);
+                blockCount = 0;
             }
         }
+        blocks.push_back(blockCount);
 
-        if (s.size() == 1) {
-            cout << "YES" << endl;
-        } else {
-            cout << "NO" << endl;
+        for (int x : blocks) {
+            if (x % 2 != 0) {
+                cout << "NO" << endl;
+                flag = true;
+                break;
+            }
         }
+        if (flag == true)
+            continue;
+
+        cout << "YES" << endl;
     }
 
     return 0;
